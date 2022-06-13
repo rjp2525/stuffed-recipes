@@ -1,0 +1,33 @@
+// Navbar related styling
+
+.navbar {
+    @apply bg-brand-500 text-white fixed top-0 left-0 right-0 block w-full z-50;
+
+    .navbar-wrap {
+        @apply relative;
+
+        .navbar-inner {
+            @apply container flex flex-wrap items-center justify-between mx-auto;
+
+            .logo {
+                @apply py-3;
+            }
+
+            .main-navigation {
+                @apply p-0 m-0 list-none lg:text-center;
+
+                li {
+                    @apply inline-block;
+
+                    .nav-link {
+                        @apply py-4 text-white/80 capitalize text-sm font-medium block mr-8 transition-all hover:text-white focus:text-white active:text-white;
+                    }
+
+                    &:last-of-type .nav-link {
+                        @apply mr-0;
+                    }
+                }
+            }
+        }
+    }
+}

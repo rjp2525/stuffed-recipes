@@ -1,0 +1,93 @@
+<script setup>
+import StuffedButton from "@/Components/Button.vue";
+import StuffedCheckbox from "@/Components/Checkbox.vue";
+import GuestLayout from "@/Layouts/Guest.vue";
+import StuffedInput from "@/Components/Input.vue";
+import StuffedLabel from "@/Components/Label.vue";
+import ValidationErrors from "@/Components/ValidationErrors.vue";
+import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
+
+defineProps({
+    canResetPassword: Boolean,
+    status: String,
+});
+
+const form = useForm({
+    email: "",
+    password: "",
+    remember: false,
+});
+
+const submit = () => {
+    form.post(route("login"), {
+        onFinish: () => form.reset("password"),
+    });
+};
+</script>
+
+<template>
+    <GuestLayout>
+        <Head title="Log in" />
+
+        <ValidationErrors class="mb-4" />
+
+        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+            {{ status }}
+        </div>
+
+        <form @submit.prevent="submit">
+            <div>
+                <StuffedLabel for="email" value="Email" />
+                <StuffedInput
+                    id="email"
+                    type="email"
+                    class="mt-1 block w-full"
+                    v-model="form.email"
+                    required
+                    autofocus
+                    autocomplete="username"
+                />
+            </div>
+
+            <div class="mt-4">
+                <StuffedLabel for="password" value="Password" />
+                <StuffedInput
+                    id="password"
+                    type="password"
+                    class="mt-1 block w-full"
+                    v-model="form.password"
+                    required
+                    autocomplete="current-password"
+                />
+            </div>
+
+            <div class="block mt-4">
+                <label class="flex items-center">
+                    <StuffedCheckbox
+                        name="remember"
+                        v-model:checked="form.remember"
+                    />
+                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                </label>
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                <Link
+                    v-if="canResetPassword"
+                    :href="route('password.request')"
+                    class="underline text-sm text-gray-600 hover:text-gray-900"
+                >
+                    Forgot your password?
+                </Link>
+
+                <StuffedButton
+                    class="ml-4"
+                    :class="{ 'opacity-25': form.processing }"
+                    :disabled="form.processing"
+                >
+                    Log in
+                </StuffedButton>
+            </div>
+        </form>
+    </GuestLayout>
+</template>

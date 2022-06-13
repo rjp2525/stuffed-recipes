@@ -1,0 +1,24 @@
+// Authentication card styling
+.authentication-card {
+    @apply max-w-md bg-white mx-auto text-sm text-zinc-500 font-light shadow-lg rounded-xl;
+
+    .form-container {
+        @apply p-7;
+
+        .form-group {
+            @apply mb-4;
+        }
+    }
+
+    .card-header {
+        @apply text-center;
+
+        .title {
+            @apply text-2xl text-zinc-600 font-medium leading-8 mb-2;
+        }
+
+        .subtitle {
+            @apply text-sm text-zinc-400 mb-4;
+        }
+    }
+}

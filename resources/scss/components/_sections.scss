@@ -1,0 +1,58 @@
+// Page section design elements
+
+// Homepage top section
+.home-top {
+    @apply mt-[68px] bg-homepage-banner-bg bg-cover bg-blend-overlay relative pb-5;
+
+    .content {
+        @apply py-52 relative text-center lg:text-left z-0;
+
+        h1.recipe-count {
+            @apply text-white font-medium mb-10 text-5xl;
+        }
+
+        h3.description {
+            @apply font-thin text-white text-5xl;
+        }
+
+        .action-button {
+            @apply mt-11;
+
+            .button {
+                @apply opacity-70 hover:opacity-100 focus:opacity-100 active:opacity-100 rounded-none border border-solid px-6 text-white inline-block font-normal text-center whitespace-nowrap align-middle select-none py-2 text-base leading-6 transition-all duration-150 ease-in-out;
+            }
+        }
+    }
+
+    .categories {
+        @apply -mt-20 relative mx-2 md:mx-0;
+
+        .wrapper {
+            @apply grid grid-cols-8 gap-3 items-center;
+
+            .category-item {
+                @apply col-span-4 md:col-span-2 xl:col-span-1;
+
+                a {
+                    @apply block shadow-md bg-brand-500 text-white text-center py-6 px-3 rounded transition-all hover:bg-brand-600 focus:bg-brand-600 active:bg-brand-600;
+                }
+            }
+        }
+    }
+}
+
+.home-section {
+    @apply py-24;
+
+    .title {
+        @apply text-center flex justify-center flex-col mb-10;
+
+        .heading {
+            @apply text-brand-500 font-bold text-2xl leading-7 mb-2 mt-0;
+        }
+
+        .description {
+            @apply text-gray-500 px-3 lg:px-0;
+        }
+    }
+}

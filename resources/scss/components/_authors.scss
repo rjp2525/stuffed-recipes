@@ -1,0 +1,24 @@
+// Authors
+.home-section.top-authors {
+    @apply bg-white;
+
+    .author-grid {
+        @apply grid grid-cols-6 gap-6;
+
+        .author {
+            @apply col-span-3 lg:col-span-1 text-center;
+
+            .avatar img {
+                @apply rounded-full shadow max-w-full mx-auto;
+            }
+
+            .name {
+                @apply font-medium text-zinc-600 text-lg leading-6 block mb-1 mt-5;
+            }
+
+            small {
+                @apply text-gray-400;
+            }
+        }
+    }
+}

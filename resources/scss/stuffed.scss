@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap");
+
+body {
+    @apply font-normal relative text-sm bg-gray-100;
+    font-family: Poppins, sans-serif;
+}
+
+.container {
+    @apply mx-auto;
+}
+
+hr {
+    @apply my-4 border-0 border-t border-solid border-t-black/10;
+}
+
+@import "components/navbar";
+
+@import "components/forms";
+
+@import "components/sections";
+
+@import "components/recipes";
+
+@import "components/authors";
+
+@import "components/pages";
+
+@import "components/cards/auth-card";

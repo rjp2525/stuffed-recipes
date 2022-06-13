@@ -1,0 +1,96 @@
+// Form related styling
+
+// Checkbox bounce keyframes
+// Authentication card
+@keyframes checkBoxBounce {
+    10% {
+        transform: scale(1.2);
+    }
+
+    75% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+// Input shake keyframes for errors
+@keyframes shake {
+    0% {
+        margin-left: 0rem;
+    }
+    25% {
+        margin-left: 0.5rem;
+    }
+    75% {
+        margin-left: -0.5rem;
+    }
+    100% {
+        margin-left: 0rem;
+    }
+}
+
+// Text inputs
+.form-control {
+    @apply block w-full py-1 px-3 text-base leading-6 text-gray-500 bg-white bg-clip-padding border border-solid border-zinc-300 rounded transition-all duration-150 ease-in-out outline-0 overflow-visible m-0 focus:border-brand-500 active:border-brand-500 shadow-none h-12 ring-0 focus:ring-0 hover:ring-0 active:ring-0 hover:outline-0 focus:outline-0 active:outline-0;
+
+    &.error {
+        .form-control {
+            @apply border-red-600 text-red-300 placeholder:text-red-300;
+            animation: shake 0.2s ease-in-out 0s 2;
+        }
+    }
+}
+
+// Labels
+.form-label {
+    @apply text-sm capitalize text-gray-500 inline-block mb-2;
+}
+
+// Checkboxes
+.checkbox {
+    @apply relative flex items-center justify-start font-medium text-sm;
+    --tick: #fff;
+    --stroke: var(--tick);
+    --bg: #fff;
+    --border: #def7ec;
+    --border-hover: #bcf0da;
+    --border-active: #057a55;
+    --size: 11px;
+
+    input,
+    .check-icon {
+        @apply block w-[21px] h-[21px];
+    }
+
+    input {
+        @apply appearance-none relative text-brand-500 bg-white outline-0 border-0 m-0 p-0 cursor-pointer rounded transition-box-shadow focus:shadow-none duration-300 mr-2 ring-0 hover:ring-0 focus:ring-0 active:ring-0;
+        box-shadow: inset 0 0 0 1px #f7e0de;
+
+        &:hover,
+        &:focus,
+        &:active {
+            box-shadow: inset 0 0 0 2px #f0c0bc;
+        }
+
+        &:checked {
+            box-shadow: inset 0 0 0 11px #f06543;
+
+            & + .check-icon {
+                animation: checkBoxBounce 0.4s linear forwards 0.2s;
+            }
+        }
+    }
+
+    .check-icon {
+        @apply pointer-events-none absolute top-0 left-0 h-[21px] w-[21px];
+        fill: none;
+        stroke-width: 2px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke: #fff;
+        transform: scale(0) translateZ(0);
+    }
+}
