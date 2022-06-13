@@ -25,6 +25,14 @@ module.exports = {
                     800: "#a8472f",
                     900: "#903d28",
                 },
+                facebook: {
+                    500: "#2f5b9d",
+                    700: "#234476",
+                },
+                twitter: {
+                    500: "#38bff1",
+                    700: "#10ace6",
+                },
             },
 
             fontFamily: {

@@ -106,6 +106,34 @@ const submit = () => {
                         Log in
                     </StuffedButton>
                 </div>
+
+                <div
+                    class="my-5 border-b border-solid border-b-zinc-200 w-full"
+                ></div>
+
+                <div class="flex justify-evenly">
+                    <a
+                        href="#"
+                        class="stuffed-button transition-all bg-facebook-500 hover:bg-facebook-700 focus:bg-facebook-700 active:bg-facebook-700"
+                        >Login with Facebook</a
+                    >
+                    <a
+                        href="#"
+                        class="stuffed-button transition-all bg-twitter-500 hover:bg-twitter-700 focus:bg-twitter-700 active:bg-twitter-700 ml-2"
+                        >Login with Twitter</a
+                    >
+                </div>
+
+                <div class="text-center">
+                    <p class="text-xs text-zinc-400 mt-4">
+                        Don't have an account yet?
+                        <Link
+                            :href="route('register')"
+                            class="underline text-brand-500 transition-all hover:text-brand-700 focus:text-brand-800 active:text-brand-800"
+                            >Register now!</Link
+                        >
+                    </p>
+                </div>
             </form>
         </authentication-card>
     </GuestLayout>
