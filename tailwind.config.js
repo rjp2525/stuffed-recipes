@@ -8,6 +8,8 @@ module.exports = {
         "./resources/js/**/*.vue",
     ],
 
+    important: true,
+
     theme: {
         extend: {
             colors: {

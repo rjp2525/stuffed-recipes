@@ -149,8 +149,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'password' => [
+            'confirmed' => 'The passwords you entered do not match.',
         ],
     ],
 
@@ -165,6 +165,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'email' => 'email address',
+    ],
 
 ];

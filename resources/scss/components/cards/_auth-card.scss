@@ -1,6 +1,6 @@
 // Authentication card styling
 .authentication-card {
-    @apply max-w-md bg-white mx-auto text-sm text-zinc-500 font-light shadow-lg rounded-xl;
+    @apply w-full max-w-lg bg-white mx-auto text-sm text-zinc-500 font-light shadow-lg rounded-xl;
 
     .form-container {
         @apply p-7;

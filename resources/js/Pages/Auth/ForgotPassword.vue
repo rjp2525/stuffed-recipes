@@ -4,6 +4,7 @@ import GuestLayout from "@/Layouts/Guest.vue";
 import StuffedInput from "@/Components/Input.vue";
 import StuffedLabel from "@/Components/Label.vue";
 import ValidationErrors from "@/Components/ValidationErrors.vue";
+import AuthenticationCard from "@/Components/Cards/AuthenticationCard.vue";
 import { Head, useForm } from "@inertiajs/inertia-vue3";
 
 defineProps({
@@ -15,7 +16,9 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route("password.email"));
+    form.post(route("password.email"), {
+        onSuccess: () => form.reset(),
+    });
 };
 </script>
 
@@ -23,40 +26,49 @@ const submit = () => {
     <GuestLayout>
         <Head title="Forgot Password" />
 
-        <div class="mb-4 text-sm text-gray-600">
-            Forgot your password? No problem. Just let us know your email
-            address and we will email you a password reset link that will allow
-            you to choose a new one.
-        </div>
-
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
-        </div>
-
-        <ValidationErrors class="mb-4" />
-
-        <form @submit.prevent="submit">
-            <div>
-                <StuffedLabel for="email" value="Email" />
-                <StuffedInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autofocus
-                    autocomplete="username"
-                />
+        <authentication-card>
+            <div class="card-header">
+                <h2 class="title">Forgot Password</h2>
+                <p class="subtitle text-left">
+                    Forgot your password? No problem. Just let us know your
+                    email address and we will email you a password reset link
+                    that will allow you to choose a new one.
+                </p>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <StuffedButton
-                    :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing"
-                >
-                    Email Password Reset Link
-                </StuffedButton>
+            <div
+                v-if="status"
+                class="border-l-4 border-l-green-600 bg-green-100/20 p-4 mb-4 font-medium text-sm text-green-600"
+            >
+                {{ status }}
             </div>
-        </form>
+
+            <ValidationErrors class="mb-4" />
+
+            <form @submit.prevent="submit">
+                <div class="form-group">
+                    <StuffedLabel for="email" value="Email" />
+                    <StuffedInput
+                        id="email"
+                        type="email"
+                        class="mt-1 block w-full"
+                        :class="{ error: form.errors.email }"
+                        v-model="form.email"
+                        required
+                        autofocus
+                        autocomplete="username"
+                    />
+                </div>
+
+                <div class="flex items-center justify-center mt-4">
+                    <StuffedButton
+                        :class="{ 'opacity-25': form.processing }"
+                        :disabled="form.processing"
+                    >
+                        Email Password Reset Link
+                    </StuffedButton>
+                </div>
+            </form>
+        </authentication-card>
     </GuestLayout>
 </template>

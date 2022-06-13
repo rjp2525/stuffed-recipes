@@ -37,10 +37,8 @@
     @apply block w-full py-1 px-3 text-base leading-6 text-gray-500 bg-white bg-clip-padding border border-solid border-zinc-300 rounded transition-all duration-150 ease-in-out outline-0 overflow-visible m-0 focus:border-brand-500 active:border-brand-500 shadow-none h-12 ring-0 focus:ring-0 hover:ring-0 active:ring-0 hover:outline-0 focus:outline-0 active:outline-0;
 
     &.error {
-        .form-control {
-            @apply border-red-600 text-red-300 placeholder:text-red-300;
-            animation: shake 0.2s ease-in-out 0s 2;
-        }
+        @apply border-red-600 placeholder:text-red-300;
+        animation: shake 0.2s ease-in-out 0s 2;
     }
 }
 
@@ -50,7 +48,7 @@
 }
 
 // Checkboxes
-.checkbox {
+.checkbox-group {
     @apply relative flex items-center justify-start font-medium text-sm;
     --tick: #fff;
     --stroke: var(--tick);
@@ -66,12 +64,10 @@
     }
 
     input {
-        @apply appearance-none relative text-brand-500 bg-white outline-0 border-0 m-0 p-0 cursor-pointer rounded transition-box-shadow focus:shadow-none duration-300 mr-2 ring-0 hover:ring-0 focus:ring-0 active:ring-0;
+        @apply appearance-none relative bg-white outline-0 border-0 m-0 p-0 cursor-pointer rounded transition-box-shadow duration-300 mr-2;
         box-shadow: inset 0 0 0 1px #f7e0de;
 
-        &:hover,
-        &:focus,
-        &:active {
+        &:hover {
             box-shadow: inset 0 0 0 2px #f0c0bc;
         }
 
@@ -93,4 +89,14 @@
         stroke: #fff;
         transform: scale(0) translateZ(0);
     }
+}
+
+// Button
+.stuffed-button {
+    @apply text-center whitespace-nowrap align-middle select-none border border-solid border-transparent text-sm leading-6 rounded transition-all py-2 px-4 inline-flex items-center bg-brand-500 font-normal text-white tracking-widest hover:bg-brand-700 active:bg-brand-900 focus:outline-none focus:border-brand-900 ease-in-out duration-150;
+}
+
+// Policy links
+.brand-link {
+    @apply mx-1 text-brand-500 transition-all underline hover:text-brand-700 focus:text-brand-900 active:text-brand-900;
 }

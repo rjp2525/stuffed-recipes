@@ -44,6 +44,7 @@ const submit = () => {
                         id="name"
                         type="text"
                         class="mt-1 block w-full"
+                        :class="{ error: form.errors.name }"
                         v-model="form.name"
                         required
                         autofocus
@@ -57,6 +58,7 @@ const submit = () => {
                         id="email"
                         type="email"
                         class="mt-1 block w-full"
+                        :class="{ error: form.errors.email }"
                         v-model="form.email"
                         required
                         autocomplete="username"
@@ -69,6 +71,7 @@ const submit = () => {
                         id="password"
                         type="password"
                         class="mt-1 block w-full"
+                        :class="{ error: form.errors.password }"
                         v-model="form.password"
                         required
                         autocomplete="new-password"
@@ -84,6 +87,7 @@ const submit = () => {
                         id="password_confirmation"
                         type="password"
                         class="mt-1 block w-full"
+                        :class="{ error: form.errors.password_confirmation }"
                         v-model="form.password_confirmation"
                         required
                         autocomplete="new-password"
@@ -91,23 +95,23 @@ const submit = () => {
                 </div>
 
                 <div class="form-group">
-                    <label for="tos" class="checkbox">
-                        <StuffedCheckbox v-model:checked="form.remember" />
+                    <label for="terms" class="checkbox-group">
+                        <StuffedCheckbox v-model:checked="form.terms" />
                         <svg class="check-icon" viewBox="0 0 21 21">
                             <polyline
                                 points="5 10.75 8.5 14.25 16 6"
                             ></polyline>
                         </svg>
                         I agree to the
-                        <a href="#" class="mx-1">Terms of Service</a> and
-                        <a href="#" class="mx-1">Privacy Policy</a>
+                        <a href="#" class="brand-link">Terms of Service</a> and
+                        <a href="#" class="brand-link">Privacy Policy</a>
                     </label>
                 </div>
 
-                <div class="flex items-center justify-end mt-4">
+                <div class="flex items-center justify-between mt-4">
                     <Link
                         :href="route('login')"
-                        class="underline text-sm text-gray-600 hover:text-gray-900"
+                        class="underline text-sm transition-all text-gray-600 hover:text-brand-700"
                     >
                         Already registered?
                     </Link>
