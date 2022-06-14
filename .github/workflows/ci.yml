@@ -47,7 +47,6 @@ jobs:
           configuration: phpunit.xml
           php_extensions: xdebug
           args: tests --coverage-clover ./coverage.xml
-        run: vendor/bin/phpunit
 
       - name: Upload code coverage report to CodeCov
         uses: codecov/codecov-action@v2
