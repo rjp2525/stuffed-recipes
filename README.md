@@ -170,7 +170,7 @@ The Stuffed Recipes application uses a lot of great packages and libraries provi
 [license-shield]: https://img.shields.io/static/v1?label=License&message=GNU+AGPLv3&color=663366&style=for-the-badge
 [license-url]: https://github.com/rjp2525/stuffed-recipes/blob/master/LICENSE.md
 [coverage-shield]: https://img.shields.io/codecov/c/github/rjp2525/stuffed-recipes?label=test%20coverage&style=for-the-badge
-[coverage-url]: https://github.com/rjp2525/stuffed-recipes/releases
+[coverage-url]: https://codecov.io/gh/rjp2525/stuffed-recipes
 [release-shield]: https://img.shields.io/github/v/release/rjp2525/stuffed-recipes?include_prereleases&style=for-the-badge
 [release-url]: https://github.com/rjp2525/stuffed-recipes/releases
 [stuffed-screenshot]: .github/screenshot.png
