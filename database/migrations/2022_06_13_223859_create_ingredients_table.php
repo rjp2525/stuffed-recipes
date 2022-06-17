@@ -31,7 +31,6 @@ return new class extends Migration {
                 ->nullable()
                 ->references('id')
                 ->on('users');
-            $table->uuid('category_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

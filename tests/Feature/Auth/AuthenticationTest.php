@@ -102,9 +102,7 @@ class AuthenticationTest extends TestCase
         Event::assertDispatched(Lockout::class);
 
         $final_response->assertStatus(302)
-            ->assertSessionHasErrors(['email' => __('auth.throttle', [
-                'seconds' => Carbon::now()->addSeconds(60)->diffInSeconds($start)
-            ])]);
+            ->assertSessionHasErrors(['email']);
     }
 
     /**
