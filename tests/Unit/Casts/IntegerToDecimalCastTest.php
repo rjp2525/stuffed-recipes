@@ -25,8 +25,18 @@ class IntegerToDecimalCastTest extends TestCase
         parent::setUp();
 
         $this->fake_model = new class extends EloquentModel {
+            /**
+             * The attributes that are mass assignable.
+             *
+             * @var array
+             */
             protected $fillable = ['test', 'test_triple'];
 
+            /**
+             * The attributes that should be cast.
+             *
+             * @var array
+             */
             protected $casts = [
                 'test' => IntegerToDecimal::class,
                 'test_triple' => IntegerToDecimal::class . ':3',
