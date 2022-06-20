@@ -7,7 +7,6 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Schema;
-use Mockery;
 use Tests\TestCase;
 
 class CategoryModelTest extends TestCase
