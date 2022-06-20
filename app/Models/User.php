@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasSettings;
 use App\Traits\UsesUuids;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,7 +14,8 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, UsesUuids, SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, UsesUuids, SoftDeletes,
+        HasSettings;
 
     /**
      * The attributes that are mass assignable.
@@ -43,6 +45,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'settings' => 'array'
     ];
 
     /**
