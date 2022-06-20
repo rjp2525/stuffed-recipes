@@ -14,7 +14,7 @@ return new class extends Migration {
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id', 36)
+            $table->foreignUuid('author_id', 36)
                 ->nullable()
                 ->references('id')
                 ->on('users')
@@ -29,11 +29,18 @@ return new class extends Migration {
                 ->on('recipes');
             $table->string('title')->index();
             $table->string('slug')->unique();
-            $table->enum('difficulty', ['easy', 'moderate', 'difficult']);
+            $table->enum('difficulty', ['easy', 'intermediate', 'difficult']);
             $table->string('description_short');
             $table->text('description_long')->nullable();
             $table->text('directions');
             $table->text('notes')->nullable();
+            $table->integer('prep_time')->default(0);
+            $table->integer('cook_time')->default(0);
+            $table->integer('custom_time')->default(0);
+            $table->string('custom_time_label')->nullable();
+            $table->integer('total_time')->default(0);
+            $table->string('yield')->nullable();
+            $table->string('servings')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

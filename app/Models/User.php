@@ -6,13 +6,14 @@ use App\Traits\UsesUuids;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, UsesUuids;
+    use HasApiTokens, HasFactory, Notifiable, UsesUuids, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -49,12 +50,22 @@ class User extends Authenticatable implements MustVerifyEmail
      */
 
     /**
-     * Get the categories that this user has created.
+     * Get the categories that this user created.
      *
      * @return HasMany
      */
     public function categories(): HasMany
     {
-        return $this->hasMany(Category::class);
+        return $this->hasMany(Category::class, 'author_id');
+    }
+
+    /**
+     * Get the recipes that this user created.
+     *
+     * @return HasMany
+     */
+    public function recipes(): HasMany
+    {
+        return $this->hasMany(Recipe::class, 'author_id');
     }
 }

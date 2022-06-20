@@ -52,6 +52,16 @@ class Category extends Model
     }
 
     /**
+     * Get the parent category for the current subcategory.
+     *
+     * @return BelongsTo
+     */
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'parent_id');
+    }
+
+    /**
      * Slug Configuration
      */
 
